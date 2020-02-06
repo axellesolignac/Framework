@@ -24,19 +24,19 @@
                         <th> <strong>Niveau</strong></th>
                       </tr>
                       @foreach ($user as $user)
+                      @foreach($user->competences as $skill)
                       <tr>
                         <td>{{$user->id}}</td>
                         <td>{{$user->firstname}}</td>
                         <td>{{$user->lastname}}</td>
                         <td>{{$user->email}}</td>
-                        @foreach($user->competences as $skill)
                         <td>{{$skill->id}}</td>
                         <td>{{$skill->nom}}</td>
                         <td>{{$skill->description}}</td>
                         <td>{{$skill->pivot->niveau}}</td>
-                        <td><a href="{{route('skills.create',['id'=>$skill->id])}}" class="btn btn-outline-dark">Add</a></td>
-                        <td><a href="{{route('skills.edit',['id'=>$skill->id])}}" class="btn btn-outline-primary">Edit</a></td>
-                        <td><a href="{{route('skills.destroy',['id'=>$skill->id])}}" class="btn btn-outline-danger">Delete</a></td>
+                        <td><a href="{{route('skills.create',['id'=>$user->id])}}" class="btn btn-outline-dark">Add</a></td>
+                        <td><a href="{{route('skills.edit',['id'=>$user->id])}}" class="btn btn-outline-primary">Edit</a></td>
+                        <td><a href="{{route('skills.destroy',['id'=>$user->id])}}" class="btn btn-outline-danger">Delete</a></td>
                        </tr>
                         @endforeach
                       @endforeach

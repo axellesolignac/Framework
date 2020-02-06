@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Competence;
 
@@ -30,7 +31,7 @@ class SkillsController extends Controller
         return view('skills', compact('user'));
     }
 
-   public function create()
+   public function create(Request $request)
     {
         return view('create');
     }
@@ -43,7 +44,7 @@ class SkillsController extends Controller
         $skill->description = $request->input('description');
         $skill->src = $request->input('src');
         $skill->save();
-        return redirect()->route('skills.index')->with('info','skill Added Successfully');
+        return redirect()->route('skills.index');
     }
     
     public function edit($id)
@@ -59,11 +60,11 @@ class SkillsController extends Controller
           $comp->description = $request->input('description');
           $comp->niveau = $request->input('niveau');
           $comp->save();
-          return redirect()->route('skills.index')->with('info','Skills Updated Successfully');
+          return redirect()->route('skills.index');
       }
     public function destroy($id)
       {
-          $comp = Competence::find($id);
+          $comp = User::find($id);
           $comp->delete();
           return redirect()->route('skills.index');
       }

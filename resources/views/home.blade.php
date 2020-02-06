@@ -16,7 +16,7 @@
 
                     You are logged in!
                 </div>
-                <a  class="btn btn-secondary" href="{{ url('/users')}}">Voir ton user</a>
+                <a  class="btn btn-secondary" href="{{ url('/user')}}">Voir ton user</a>
                 <a  class="btn btn-secondary" href="{{ url('/skills')}}">Voir tous les users</a>
             </div>
         </div>

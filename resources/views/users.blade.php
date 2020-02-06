@@ -13,10 +13,29 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <strong>Id</strong> : {{$user->id}}</br>
-                    <strong>Prenom</strong> : {{$user->firstname}} </br>
-                    <strong>Nom de famille</strong> : {{$user->lastname}}</br>
-                    <strong>Email</strong> : {{$user->email}}</br>
+                    <table class="table">
+                    <tr>
+                      <th><strong>Id</strong></th>
+                      <th><strong>Prenom</strong></th>
+                      <th><strong>Nom de famille</strong></th>
+                      <th><strong>Email</strong></th>
+                      <th><strong>Id_comp</strong></th>
+                      <th><strong>Competence</strong></th>
+                      <th><strong>Niveau</strong></th>
+                    </tr>
+                    <tr>
+                      <td>{{$user->id}}</td>
+                      <td>{{$user->firstname}}</td>
+                      <td>{{$user->lastname}}</td>
+                      <td>{{$user->email}}</td>
+                      @foreach($comp as $skills)
+                      <td>{{$skills->id}}</td>
+                      <td>{{$skills->nom}}</td>
+                      <td>{{$skills->niveau}}</td>
+                      @endforeach
+                      <td><a href="{{route('edit')}}" class="btn btn-outline-dark">Add</a></td>
+                    </tr>
+                    </table>
                 </div>
                 <a  class="btn btn-secondary" href="{{ url('/home')}}">Retour</a>
             </div>
