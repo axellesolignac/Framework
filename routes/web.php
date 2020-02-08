@@ -21,8 +21,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-
 Route::get('/skills', 'SkillsController@index')->name('skills.index');
 
 Route::get('/user/add','UsersController@add')->name('add');
@@ -32,6 +30,9 @@ Route::get('/user/edit', function() {
       $compe = Competence::all();    
   return view('add', compact('user','skills','compe'));
 })->name('edit');
+
 Route::post('/user/edit', 'UsersController@add');
+
+Route::get('/user/{id}/delete','UsersController@destroy')->name('destroy');
 
 Route::get('/user', 'UsersController@index')->name('user');
