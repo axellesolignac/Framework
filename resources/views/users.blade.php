@@ -14,17 +14,21 @@
                       <th><strong>Prenom</strong></th>
                       <th><strong>Nom de famille</strong></th>
                       <th><strong>Email</strong></th>
-                      <th><strong>Id_comp</strong></th>
-                      <th><strong>Competence</strong></th>
-                      <th><strong>Niveau</strong></th>
                     </tr>
-
-                    @foreach($comp as $skills)
                     <tr>
                       <td>{{$user->id}}</td>
                       <td>{{$user->firstname}}</td>
                       <td>{{$user->lastname}}</td>
                       <td>{{$user->email}}</td>
+                    </tr>
+                    
+                    <tr>
+                      <th><strong>Id_comp</strong></th>
+                      <th><strong>Competence</strong></th>
+                      <th><strong>Niveau</strong></th>
+                    </tr>
+                    @foreach($comp as $skills)
+                    <tr>
                       <td>{{$skills->id}}</td>
                       <td>{{$skills->nom}}</td>
                       <td>{{$skills->pivot->niveau}}</td>

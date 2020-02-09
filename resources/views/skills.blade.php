@@ -34,9 +34,9 @@
                         <td>{{$skill->nom}}</td>
                         <td>{{$skill->description}}</td>
                         <td>{{$skill->pivot->niveau}}</td>
-                        <td><a href="{{route('skills.create',['id'=>$user->id])}}" class="btn btn-outline-dark">Add</a></td>
-                        <td><a href="{{route('skills.edit',['id'=>$user->id])}}" class="btn btn-outline-primary">Edit</a></td>
-                        <td><a href="{{route('skills.destroy',['id'=>$user->id])}}" class="btn btn-outline-danger">Delete</a></td>
+                        <td><a href="#" class="btn btn-outline-dark">Add</a></td>
+                        <td><a href="#" class="btn btn-outline-primary">Edit</a></td>
+                        <td><a href="#" class="btn btn-outline-danger">Delete</a></td>
                        </tr>
                         @endforeach
                       @endforeach

@@ -8,18 +8,16 @@
       </div>
     @endif
     <div class="col-sm-8 offset-sm-2">
-      <form method=POST>
+      <form method="POST">
                     @csrf
-                        <select type=text name=competence placeholder='Competence'required>
+                        <select type="text" name="competence" placeholder="Competence"required>
                           @foreach($skills as $skill)
                           <option value={{$skill->id}}>{{$skill->id}}. {{$skill->nom}}</option>
                           @endforeach 
                         </select>
-                        <input type=number max=5 min=1 name=niveau placeholder='Niveau'required>
-                        <input type=submit name=valider value=Modifier>
+                        <input type="number" style="width:100px;" max="5" min="1" name="niveau" placeholder="Niveau"required>
+                        <input type="submit" name="valider" value="Modifier">
                     </form>
-                    Ajouter une competence
-                    <form method=POST>
     </div>
   </div>
 @endsection

@@ -14,10 +14,12 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Bienvenu dans ma premiere gestion des competences!
                 </div>
-                <a  class="btn btn-secondary" href="{{ url('/user')}}">Voir ton user</a>
-                <a  class="btn btn-secondary" href="{{ url('/skills')}}">Voir tous les users</a>
+            <center>
+            <a  class="btn btn-dark" href="{{ url('/user')}}">Gerer mes competences</a>
+            <a  class="btn btn-dark" href="{{ url('/skills')}}">Voir celles des users</a>
+            </center>
             </div>
         </div>
     </div>
