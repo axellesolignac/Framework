@@ -27,13 +27,13 @@
                       <td>{{$user->email}}</td>
                       <td>{{$skills->id}}</td>
                       <td>{{$skills->nom}}</td>
-                      <td>{{$skills->niveau}}</td>
-                      <td><a href="#" class="btn btn-outline-primary">Modifier</a></td>
+                      <td>{{$skills->pivot->niveau}}</td>
                       <td><a href="{{route('destroy',['id'=>$skills->id])}}" class="btn btn-outline-danger">Supprimer</a></td>
                     </tr>
                     @endforeach
                     </table>
-                <a href="{{route('edit')}}" class="btn btn-outline-success">Ajouter</a>
+                <a href="{{route('adding')}}" class="btn btn-outline-success" style="margin-right: 10px;">Ajouter</a>
+                <a href="{{route('editing')}}" class="btn btn-outline-primary" style="margin-right: 10px;">Modifier</a>
                 <a  class="btn btn-outline-secondary" href="{{ url('/home')}}">Retour</a>
 </div>
 @endsection

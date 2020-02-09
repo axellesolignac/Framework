@@ -37,7 +37,16 @@ class UsersController extends Controller
       $skills = $user->competences;
       $comp = Competence::all();
       DB::table('competence_user')->insert(['competence_id'=>$request->input('competence'),'niveau'=>$request->input('niveau'),'user_id'=>$user->id]);
-      return view('users', compact('user','skills','comp'));
+      return redirect()->route('user');
+    }
+    
+    public function edit(Request $request)
+    {
+      $user = Auth::user();
+      $skills = $user->competences;
+      $comp = Competence::all();
+      DB::table('competence_user')->where('user_id',$user->id)->where('competence_id',$request->input('competence'))->update(['niveau'=>$request->input('niveau')]);
+      return redirect()->route('user');
     }
     
     public function destroy($id)
@@ -46,6 +55,7 @@ class UsersController extends Controller
       $skills = $user->competences;
       $comp = Competence::all();
       DB::table('competence_user')->where('user_id', $user->id)->where('competence_id', $id)->delete();
+      return redirect()->route('user');
     }
     
 }

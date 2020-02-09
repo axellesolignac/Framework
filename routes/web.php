@@ -24,15 +24,25 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/skills', 'SkillsController@index')->name('skills.index');
 
 Route::get('/user/add','UsersController@add')->name('add');
-Route::get('/user/edit', function() {
+Route::get('/user/adding', function() {
       $user = Auth::user();
       $skills = $user->competences;
       $compe = Competence::all();    
   return view('add', compact('user','skills','compe'));
-})->name('edit');
+})->name('adding');
 
-Route::post('/user/edit', 'UsersController@add');
+Route::post('/user/adding', 'UsersController@add');
 
 Route::get('/user/{id}/delete','UsersController@destroy')->name('destroy');
+
+Route::get('user/edit','UsersController@edit')->name('edit');
+Route::get('/user/editing', function() {
+      $user = Auth::user();
+      $skills = $user->competences;
+      $compe = Competence::all();    
+  return view('edit', compact('user','skills','compe'));
+})->name('editing');
+
+Route::post('/user/editing', 'UsersController@edit');
 
 Route::get('/user', 'UsersController@index')->name('user');

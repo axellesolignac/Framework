@@ -8,26 +8,18 @@
       </div>
     @endif
     <div class="col-sm-8 offset-sm-2">
-      <form action="{{route('skills.update')}}" method = "post">
-        @csrf
-        <div class="form-group">
-          <label for="id">Id comp:</label>
-          <input type="text" name = "id" id = "id" class="form-control" value = "{{$user->competences->id}}">
-        </div>
-        <div class="form-group">
-          <label for="name">Competence:</label>
-          <input type="text" name = "name" id = "name" class="form-control" value = "{{$user->competences->name}}">
-        </div>
-        <div class="form-group">
-          <label for="description">Description:</label>
-          <input type="text" name = "description" id = "description" class="form-control" value = "{{$user->competences->description}}">
-        </div>
-        <div class="form-group">
-          <label for="niveau">Niveau:</label>
-          <input type="text" name = "niveau" id = "niveau" class="form-control" value = "{{$user->competences->pivot->niveau}}">
-        </div>
-        <button type = "submit" class = "btn btn-success">Submit</button>
-      </form>
+      <form method=POST>
+                    @csrf
+                        <select type=text name=competence placeholder='Competence'required>
+                          @foreach($skills as $skill)
+                          <option value={{$skill->id}}>{{$skill->id}}. {{$skill->nom}}</option>
+                          @endforeach 
+                        </select>
+                        <input type=number max=5 min=1 name=niveau placeholder='Niveau'required>
+                        <input type=submit name=valider value=Modifier>
+                    </form>
+                    Ajouter une competence
+                    <form method=POST>
     </div>
   </div>
 @endsection
