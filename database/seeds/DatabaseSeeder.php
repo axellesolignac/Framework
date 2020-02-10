@@ -13,8 +13,6 @@ class DatabaseSeeder extends Seeder
     {
       Schema::disableForeignKeyConstraints();
       // $this->call(UsersTableSeeder::class);
-      $this->call(RoleTableSeeder::class);
-      $this->call(UserTableSeeder::class);
       $this->call(CompetencesTableSeeder::class);
       $competences = App\Competence::all();
       factory(App\User::class,50)->create()->each(function($u) use ($competences)

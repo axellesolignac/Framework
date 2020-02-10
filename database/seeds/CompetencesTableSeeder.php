@@ -19,18 +19,23 @@ class CompetencesTableSeeder extends Seeder
         ],
         [
             'nom' => 'HTML/CSS',
-            'description' => 'coucou',
+            'description' => 'Langage web',
             'src' => 'html.png',
          ],
            [
             'nom' => 'PHP',
-            'description' => 'coucou1',
+            'description' => 'Langage de developpement web',
             'src' => 'php.png',
          ],
            [
             'nom' => 'Java',
-            'description' => 'hello',
+            'description' => 'Langage objet',
             'src' => 'java.png',
+         ],
+         [
+            'nom' => 'Python',
+            'description' => 'Langage du cobra',
+            'src' => 'python.png',
          ]);
          App\Competence::insert($data);
     }

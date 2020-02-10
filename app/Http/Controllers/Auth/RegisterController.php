@@ -74,17 +74,4 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
-    
-    protected function create(array $data)
-    {
-      $user = User::create([
-        'name'     => $data['name'],
-        'email'    => $data['email'],
-        'password' => bcrypt($data['password']),
-      ]);
-      $user
-         ->roles()
-         ->attach(Role::where('name', 'utilisateur')->first());
-      return $user;
-    }
 }
