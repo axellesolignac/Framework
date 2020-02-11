@@ -16,7 +16,7 @@ Use \App\Competence;
 Route::get('/', function () {
     return view('welcome');
 });
- 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -44,3 +44,13 @@ Route::get('/user/editing', function() {
 Route::post('/user/editing', 'UsersController@edit');
 
 Route::get('/user', 'UsersController@index')->name('user');
+
+Route::get('/skills/manage', function(){
+  if (Gate::check('admin')) {
+    $app = app();
+    $controller = $app->make('App\Http\Controllers\SkillsController');
+  return $controller->callAction('index',[]);
+  }else{
+    return view('welcome');
+  }
+});

@@ -13,7 +13,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
                     Bienvenu dans ma premiere gestion des competences!
                 </div>
             <center>

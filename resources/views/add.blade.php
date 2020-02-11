@@ -6,7 +6,7 @@
       @csrf
           <select type="text" name="competence" placeholder="Competence"required>
           @foreach($compe as $skill)
-          <option value={{$skill->id}}>{{$skill->id}}. {{$skill->nom}}</option>
+          <option value={{$skill->id}}>{{$skill->nom}}</option>
           @endforeach
           </select>
           <br />

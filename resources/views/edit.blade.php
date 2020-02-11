@@ -12,7 +12,7 @@
                     @csrf
                         <select type="text" name="competence" placeholder="Competence"required>
                           @foreach($skills as $skill)
-                          <option value={{$skill->id}}>{{$skill->id}}. {{$skill->nom}}</option>
+                          <option value={{$skill->id}}>{{$skill->nom}}</option>
                           @endforeach 
                         </select>
                         <input type="number" style="width:100px;" max="5" min="1" name="niveau" placeholder="Niveau"required>
