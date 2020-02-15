@@ -12,6 +12,7 @@
 */
 
 Use \App\Competence;
+use \App\User;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,7 +22,41 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/skills', 'SkillsController@index')->name('skills.index');
+Route::get('/admin/skills', 'SkillsController@index')->name('skills');
+
+Route::get('/admin/add','AdminController@add')->name('admin_add');
+Route::get('/admin/adding', function() {
+      $user = Auth::user();
+      $skills = $user->competences;
+      $compe = Competence::all();    
+  return view('add', compact('user','skills','compe'));
+})->name('admin_adding');
+Route::post('/admin/adding', 'AdminController@add');
+
+Route::get('/admin/{id}/delete','AdminController@destroy')->name('admin_destroy');
+
+Route::get('admin/edit','AdminController@edit')->name('admin_edit');
+Route::get('/admin/editing', function() {
+      $user = Auth::user();
+      $skills = $user->competences;
+      $compe = Competence::all();    
+  return view('edit', compact('user','skills','compe'));
+})->name('admin_editing');
+Route::post('/admin/editing', 'AdminController@edit');
+
+Route::get('/admin/logout', function () {
+    return view('logout_admin');
+});
+
+Route::get('/admin' ,'AdminController@index')->name('admin');
+
+
+
+
+Route::get('/liste_comp', function() {
+    $user = User::all();
+    return view('liste_comp', compact('user'));
+    });
 
 Route::get('/user/add','UsersController@add')->name('add');
 Route::get('/user/adding', function() {
@@ -44,13 +79,3 @@ Route::get('/user/editing', function() {
 Route::post('/user/editing', 'UsersController@edit');
 
 Route::get('/user', 'UsersController@index')->name('user');
-
-Route::get('/skills/manage', function(){
-  if (Gate::check('admin')) {
-    $app = app();
-    $controller = $app->make('App\Http\Controllers\SkillsController');
-  return $controller->callAction('index',[]);
-  }else{
-    return view('welcome');
-  }
-});

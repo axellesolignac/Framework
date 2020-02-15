@@ -17,7 +17,7 @@
                 </div>
             <center>
             <a  class="btn btn-dark" href="{{ url('/user')}}">Gerer mes competences</a>
-            <a  class="btn btn-dark" href="{{ url('/skills')}}">Voir celles des users</a>
+            <a  class="btn btn-dark" href="{{ url('/liste_comp')}}">Voir celles des users</a>
             </center>
             </div>
         </div>
