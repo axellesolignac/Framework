@@ -25,12 +25,14 @@
                     <tr>
                       <th><strong>Id_comp</strong></th>
                       <th><strong>Competence</strong></th>
+                      <th><strong>Src</strong></th>
                       <th><strong>Niveau</strong></th>
                     </tr>
                     @foreach($comp as $skills)
                     <tr>
                       <td>{{$skills->id}}</td>
                       <td>{{$skills->nom}}</td>
+                      <td><img src={{$skills->src}} width=50px height=50px ></td>
                       <td>{{$skills->pivot->niveau}}</td>
                       <td><a href="{{route('destroy',['id'=>$skills->id])}}" class="btn btn-outline-danger">Supprimer</a></td>
                     </tr>

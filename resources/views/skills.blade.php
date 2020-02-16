@@ -5,7 +5,7 @@
     <div>
         <div>
             <div>
-                 <a class="btn btn-secondary" href="{{ url('/home')}}">Retour</a>
+                <a class="btn btn-secondary" href="{{ url('/admin')}}">Retour</a>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -20,21 +20,26 @@
                         <th><strong>Email</strong></th>
                         <th><strong>Id comp</strong></th>
                         <th><strong>Competence</strong></th>
+                        <th><strong>Src</strong></th>
                         <th><strong>Description</strong></th>
                         <th> <strong>Niveau</strong></th>
                       </tr>
                       @foreach ($user as $user)
-                      @foreach($user->competences as $skill)
-                      <tr>
-                        <td>{{$user->id}}</td>
-                        <td>{{$user->firstname}}</td>
-                        <td>{{$user->lastname}}</td>
-                        <td>{{$user->email}}</td>
-                        <td>{{$skill->id}}</td>
-                        <td>{{$skill->nom}}</td>
-                        <td>{{$skill->description}}</td>
-                        <td>{{$skill->pivot->niveau}}</td>
-                       </tr>
+                        @foreach($user->competences as $skill)
+                        <tr>
+                          <td>{{$user->id}}</td>
+                          <td>{{$user->firstname}}</td>
+                          <td>{{$user->lastname}}</td>
+                          <td>{{$user->email}}</td>
+                          <td>{{$skill->id}}</td>
+                          <td>{{$skill->nom}}</td>
+                          <td><img src={{$skill->src}} width=50px height=50px ></td>
+                          <td>{{$skill->description}}</td>
+                          <td>{{$skill->pivot->niveau}}</td>
+                          <td><a href="#" class="btn btn-outline-success" style="margin-right: 10px;">Ajouter</a></td>
+                          <td><a href="#" class="btn btn-outline-primary" style="margin-right: 10px;">Modifier</a></td>
+                          <td><a href="#" class="btn btn-outline-danger">Supprimer</a></td>
+                         </tr>
                         @endforeach
                       @endforeach
                     </table>

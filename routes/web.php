@@ -11,7 +11,7 @@
 |
 */
 
-Use \App\Competence;
+use \App\Competence;
 use \App\User;
 
 Route::get('/', function () {

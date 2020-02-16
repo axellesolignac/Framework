@@ -51,12 +51,14 @@
                           <tr>
                             <th><strong>Id_comp</strong></th>
                             <th><strong>Competence</strong></th>
+                            <th><strong>Src</strong></th>
                             <th><strong>Niveau</strong></th>
                           </tr>
                           @foreach($comp as $skills)
                           <tr>
                             <td>{{$skills->id}}</td>
                             <td>{{$skills->nom}}</td>
+                            <td><img src={{$skills->src}} width=50px height=50px ></td>
                             <td>{{$skills->pivot->niveau}}</td>
                             <td><a href="{{route('admin_destroy',['id'=>$skills->id])}}" class="btn btn-outline-danger">Supprimer</a></td>
                           </tr>
@@ -71,30 +73,7 @@
               </div>
               <div class="card">
                 <div class="card-header" id="headingTwo">
-                  <h2 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      Gestion des competences de tous les utilisateurs
-                    </button>
-                  </h2>
-                </div>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                  <div class="card-body">
-
-                    <table class="table">
-                      <tr>
-                        <th><strong>Id</strong></th>
-                        <th><strong>Prenom</strong></th>
-                        <th><strong>Nom de famille</strong></th>
-                        <th><strong>Email</strong></th>
-                        <th><strong>Id comp</strong></th>
-                        <th><strong>Competence</strong></th>
-                        <th><strong>Description</strong></th>
-                        <th> <strong>Niveau</strong></th>
-                      </tr>
-
-                    </table>
-
-                  </div>
+                    <a href="{{ url('/admin/skills')}}"> Gestion des competences de tous les utilisateurs</a>
                 </div>
               </div>
             </div>

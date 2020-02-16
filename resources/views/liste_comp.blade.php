@@ -20,6 +20,7 @@
                         <th><strong>Email</strong></th>
                         <th><strong>Id comp</strong></th>
                         <th><strong>Competence</strong></th>
+                        <th><strong>Src</strong></th>
                         <th><strong>Description</strong></th>
                         <th> <strong>Niveau</strong></th>
                       </tr>
@@ -32,6 +33,7 @@
                         <td>{{$user->email}}</td>
                         <td>{{$skill->id}}</td>
                         <td>{{$skill->nom}}</td>
+                        <td><img src={{$skill->src}} width=50px height=50px ></td>
                         <td>{{$skill->description}}</td>
                         <td>{{$skill->pivot->niveau}}</td>
                        </tr>

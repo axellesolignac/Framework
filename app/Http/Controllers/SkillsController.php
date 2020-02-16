@@ -28,6 +28,6 @@ class SkillsController extends Controller
     public function index()
     {
         $user = User::all();
-        return view('skills', compact('user');
+        return view('skills', compact('user'));
     }
 }
